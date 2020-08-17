@@ -6,6 +6,7 @@ A year, between 1800 and 20000, is a leap year if
 For this function, you can assume that the year is between 1800 and 20000.
 You do not need to check it.
 """
+
 # Part (a)
 def isLeapyear(year):
     # First Condition divisible by 4 but not 100
@@ -27,6 +28,7 @@ if 1800 <= year <= 20000:
         print("Not Leap year")
 else:
     print("You enter Invalid year")
+
 
 #Part(b)
 """b. Define a function called daysInMonth that takes a month of a year and
