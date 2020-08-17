@@ -1,5 +1,3 @@
-#Bis Mil Allah
-
 '''Take User Input as integer'''
 
 no_of_adult = int(input("Number of adults: "))

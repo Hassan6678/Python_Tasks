@@ -37,18 +37,12 @@ def validation(str):
 
             # check if the char e has already occurred before '.' If yes, return false
             if flag:
-                print("false 1")
                 return False
-
-            print(str[i])
 
             # If last char is '.' or not digit then return false
-            print(i + 1, len(str))
-            if i + 1 > len(str):
-                print("false 2")
+            if i + 1 >= len(str):
                 return False
             if not ('0' <= str[i+1] <= '9'):
-                print("false 3")
                 return False
 
         elif str[i] == 'e':
@@ -58,18 +52,15 @@ def validation(str):
 
             # if there is no digit before e (if last chr is '.')
             if not ('0' <= str[i - 1] <= '9'):
-                print("false 4")
                 return False
 
             # if e is the last character
-            if i + 1 > len(str):
-                print("false 5")
+            if i + 1 >= len(str):
                 return False
 
             # if e is not followed by
             # '+', '-' or a digit
             if str[i + 1] != '+' and str[i + 1] != '-' and (str[i + 1] >= '0' and str[i] <= '9'):
-                print("false 5")
                 return False
 
     # If the string skips all the
@@ -77,4 +68,9 @@ def validation(str):
     return True
 
 number = input("Enter Number: ")
-print(validation(number))
+
+if validation(number):
+    print("Valid Number")
+
+else:
+    print("Invalid Number")
