@@ -21,4 +21,8 @@ cost_of_family_ticket = 26  # 26$  Family(2 Adult & 2 Chilfren)
 Total_Cost  = (no_of_adult * cost_of_adult_ticket) + (no_of_children * cost_of_children_ticket) + (count_family * cost_of_family_ticket)
 
 '''Print Final Result In Dollar ($)'''
+print('Number of family tickets: ',count_family)
+print('Number of adult tickets: ',no_of_adult)
+print('Number of child tickets: ',no_of_children)
+
 print ('Total Cost: ${}'.format(Total_Cost))
