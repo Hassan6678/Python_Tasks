@@ -1,13 +1,19 @@
 ''' 3 – String Representing Floating-Point Value '''
 
 def validation(str):
-    # if string has spaces then ?
-    # Ans : I ignore all spaces and  then remove all spaces
     i = 0
     j = len(str) - 1
 
-    # New String after removing spaces
-    str = str.replace(" ", "")
+    count = 0
+
+    # Iterating the string and checking for whitespace characters
+    # Incrementing the counter if a whitespace character is found
+    # Finally printing the count
+    for a in str:
+        if a.isspace() == True:
+            count += 1
+    if count > 0:
+        return False
 
     # if string is of length 1 and the only
     # character is not a digit
