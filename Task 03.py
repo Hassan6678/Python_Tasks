@@ -8,11 +8,36 @@ def validation(str):
 
     # Iterating the string and checking for whitespace characters
     # Incrementing the counter if a whitespace character is found
-    # Finally printing the count
+    # Finally return false
     for a in str:
         if a.isspace() == True:
             count += 1
     if count > 0:
+        return False
+
+    # counting '.'
+    count_dot = 0
+    for dot in str:
+        if dot == '.':
+            count_dot += 1
+    if count_dot > 1:
+        return False
+
+    # counting '-'
+    count_minus = 0
+    for minus in str:
+        if minus == '-':
+            count_minus += 1
+    if count_minus > 1:
+        return False
+
+    # Check if '-' appear after 1st place like '12-'
+    count_min = 0
+    for min in range(1,len(str)):
+        #print("min:,",)
+        if str[min] == '-':
+            count_min += 1
+    if count_min > 0:
         return False
 
     # if string is of length 1 and the only
@@ -45,11 +70,12 @@ def validation(str):
             if flag:
                 return False
 
-            # If last char is '.' or not digit then return false
+            # If last char is '.' return True
             if i + 1 >= len(str):
-                return False
-            if not ('0' <= str[i+1] <= '9'):
-                return False
+                return True
+            # if last char is not digit then return false
+            # if not ('0' <= str[i+1] <= '9'):
+            #     return False
 
         elif str[i] == 'e':
 
@@ -72,6 +98,22 @@ def validation(str):
     # If the string skips all the
     # above cases, it must be a numeric string
     return True
+
+
+#  case reported by Haider
+# 1.   --1.9
+print(validation('--1.9')) # False
+# 2.   .123.45
+print(validation('.123.45')) # False
+# case that count my Hassan
+# 1.   -.12
+print(validation('-.12')) # True
+# 2.   +-1 or + -+1
+print(validation('-+1')) # True
+# 3.    12.12- , 12- , 12+ ?
+print(validation('12.12-')) # False
+# 4     123.
+print(validation('12.')) # True
 
 number = input("Enter Number: ")
 

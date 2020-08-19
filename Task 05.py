@@ -72,7 +72,7 @@ def roundOff(number):
                 str1 += ele
 
             new_d = float(str1)
-            print("New: ", new_d)
+            print("Round off: ", new_d)
         else:
             # if last digit is 0 or 5 then
             last_digit = adjust(last)
@@ -87,9 +87,9 @@ def roundOff(number):
                 str1 += ele
 
             new_d = float(str1)
-            print("New: ", new_d)
+            print("Round off: ", new_d)
 
-    else:
+    else: # When Fraction Part exist
 
         # Typecasting --> convert float decimal into int Decimal
         f = int(f)
@@ -97,6 +97,30 @@ def roundOff(number):
         f = str(f)
         # Extract last digit from our Decimal number
         last = f[-1]
+
+        # If last last right digit == 0 (Case reported as 1.3)
+        if last == '0':
+            second_last = f[-2]
+            second_last = int(second_last)
+            second_last = adjust(second_last)
+
+            second_last = str(second_last)
+            new_f = list(f)
+            new_f[-1] = '0'
+            new_f[-2] = second_last
+            # initialize an empty string
+            str1 = ""
+
+            # traverse in the string
+            for ele in new_f:
+                str1 += ele
+
+            new_f = float(str1)
+            new_f = new_f / 100
+            new_num = d + new_f
+            print("Round off: ", new_num)
+            return
+
         # re cast into into to performing roundoff function
         last = int(last)
         # Special Case if last == 10 then What we Do
@@ -120,7 +144,7 @@ def roundOff(number):
             new_f = float(str1)
             new_f = new_f / 100
             new_num = d + new_f
-            print("New: ", new_num)
+            print("Round off: ", new_num)
         else:
             # if last digit is 0 or 5 then
             last_digit = adjust(last)
@@ -137,16 +161,13 @@ def roundOff(number):
             new_f = float(str1)
             new_f = new_f / 100
             new_num = d + new_f
-            print("New: ", new_num)
-
-
-
+            print("Round off: ", new_num)
 
 
 
 # The amount is entered as a decimal number with 0, 1 or 2 decimal places.
 
-number = float(input("Enter: "))
+number = float(input("Enter value: "))
 
 
 roundOff(number)
