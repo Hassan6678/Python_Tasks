@@ -31,6 +31,14 @@ def validation(str):
     if count_minus > 1:
         return False
 
+    # counting '+'
+    count_plus = 0
+    for plus in str:
+        if plus == '+':
+            count_plus += 1
+    if count_plus > 1:
+        return False
+
     # Check if '-' appear after 1st place like '12-'
     count_min = 0
     for min in range(1,len(str)):
@@ -38,6 +46,15 @@ def validation(str):
         if str[min] == '-':
             count_min += 1
     if count_min > 0:
+        return False
+
+    # Check if '+' appear after 1st place like '12-'
+    count_p = 0
+    for p in range(1,len(str)):
+        #print("min:,",)
+        if str[p] == '+':
+            count_p += 1
+    if count_p > 0:
         return False
 
     # if string is of length 1 and the only
@@ -109,10 +126,10 @@ print(validation('.123.45')) # False
 # 1.   -.12
 print(validation('-.12')) # True
 # 2.   +-1 or + -+1
-print(validation('-+1')) # True
+print(validation('-+.1')) # True
 # 3.    12.12- , 12- , 12+ ?
 print(validation('12.12-')) # False
-# 4     123.
+# 4.     123.
 print(validation('12.')) # True
 
 number = input("Enter Number: ")
