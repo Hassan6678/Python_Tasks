@@ -42,7 +42,6 @@ def validation(str):
     # Check if '-' appear after 1st place like '12-'
     count_min = 0
     for min in range(1,len(str)):
-        #print("min:,",)
         if str[min] == '-':
             count_min += 1
     if count_min > 0:
@@ -51,7 +50,6 @@ def validation(str):
     # Check if '+' appear after 1st place like '12-'
     count_p = 0
     for p in range(1,len(str)):
-        #print("min:,",)
         if str[p] == '+':
             count_p += 1
     if count_p > 0:

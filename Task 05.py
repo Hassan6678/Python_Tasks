@@ -167,7 +167,29 @@ def roundOff(number):
 
 # The amount is entered as a decimal number with 0, 1 or 2 decimal places.
 
-number = float(input("Enter value: "))
+number = str(input('Enter value: '))
 
 
-roundOff(number)
+# counting '.'
+count_dot = 0
+for dot in number:
+    if dot == '.':
+        count_dot += 1
+if count_dot > 0:
+
+    #Now check last digit is zero or not
+    number = float(number)
+    d = number // 1
+    f = round(number % 1, 2)
+
+    # Now we Round off over Fraction part according to Given rules...
+    # convert fraction into decimal
+    f = f * 100
+    # Now check fraction part turn by turn
+    '''When Fraction part given by user nothing like 2, 125, 789, etc'''
+    if f == 0.0:
+        print("Round off: ", number)
+    else:
+        roundOff(number)
+else:
+    roundOff(float(number))
